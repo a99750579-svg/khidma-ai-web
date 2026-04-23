@@ -1,6 +1,7 @@
 import "./globals.css"; // 👈 هذا أهم سطر
 
 export const metadata = {
+
   title: "Khidma AI | دليل الخدمات والمراكز في السعودية",
   description:
     "Khidma AI هو دليلك الذكي لاكتشاف أفضل المراكز والخدمات القريبة منك بسهولة. تقييمات، مواقع، وكل شيء في مكان واحد.",
@@ -13,6 +14,10 @@ export const metadata = {
     "خدمات السعودية",
   ],
   authors: [{ name: "Khidma AI" }],
+
+verification: {
+  ""google-site-verification" content="h_zsTk6LrITxqR2e21dnl183AFLQ6hL1EO6JKaz6Dhw"",
+},
   openGraph: {
     title: "Khidma AI",
     description: "اكتشف أفضل الخدمات حولك بسهولة",
