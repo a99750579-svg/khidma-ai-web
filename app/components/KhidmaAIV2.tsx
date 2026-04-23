@@ -775,7 +775,7 @@ const BeforeAfterSection = ({ lang }: { lang: 'ar' | 'en' }) => {
 const SuggestCenterSection = ({ lang }: { lang: 'ar' | 'en' }) => {
   const [copied, setCopied] = useState(false);
 
-  const shareUrl = "https://khidmaai.com";
+  const shareUrl = "https://khidma-ai.vercel.app";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shareUrl);
@@ -1416,7 +1416,7 @@ export default function KhidmaAIV2() {
               </button>
 
               <button  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-purple-500/20 transition-all font-bold border border-white/10"
-              onClick={() => window.location.href = '/app/index.html#/login'}>
+              onClick={() => window.location.href = 'https://khidma-ai.web.app/#/login'}>
                 {content.nav.login}
                 </button>
           </div>
@@ -1526,13 +1526,13 @@ export default function KhidmaAIV2() {
 
             <div className={`flex flex-col sm:flex-row items-center ${isRTL ? 'justify-start' : 'justify-start'} gap-5`}>
               <div className="flex flex-col gap-2">
-              <button className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl font-black text-lg hover:shadow-2xl hover:shadow-purple-500/40 transition-all transform hover:-translate-y-1 group flex items-center justify-center gap-2"onClick={() => window.location.href = '/app/index.html'}>
+              <button className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl font-black text-lg hover:shadow-2xl hover:shadow-purple-500/40 transition-all transform hover:-translate-y-1 group flex items-center justify-center gap-2"onClick={() => window.location.href = "https://khidma-ai.web.app"}>
                 {content.hero.cta1}<ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${isRTL ?'rotate-180':''}`} />
                 </button>
                 <span className="text-xs text-gray-500 text-center font-bold">{content.hero.ctaSub}</span>
               </div>
               <button className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 rounded-2xl font-bold text-lg backdrop-blur-md hover:bg-white/10 transition-all"
-              onClick={() => window.location.href = '/app/index.html#/register'}>
+              onClick={() => window.location.href = 'https://khidma-ai.web.app/#/register'}>
                 {content.hero.cta2}
                 </button>
                  </div>
@@ -2103,7 +2103,7 @@ export default function KhidmaAIV2() {
       {/* الأزرار */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button
-          onClick={() => window.location.href = '/app/index.html#/register'}
+          onClick={() => window.location.href = 'https://khidma-ai.web.app/#/register'}
           className="px-12 py-5 bg-white text-purple-700 rounded-2xl font-black text-xl hover:bg-white/90 transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-2 group"
         >
           {lang === 'ar' ? 'سجّل الآن مجاناً' : 'Sign Up Free Now'}
@@ -2111,7 +2111,7 @@ export default function KhidmaAIV2() {
         </button>
 
         <button
-          onClick={() => window.location.href = '/app/index.html#/login'}
+         onClick={() => window.location.href = "https://khidma-ai.web.app/#/login"}
           className="px-12 py-5 bg-white/10 border border-white/30 text-white rounded-2xl font-bold text-xl hover:bg-white/20 transition-all backdrop-blur-md"
         >
           {lang === 'ar' ? 'عندي حساب - دخول' : 'I have an account'}
@@ -2164,7 +2164,7 @@ export default function KhidmaAIV2() {
                   <ArrowUpRight className="w-3 h-3" />
                   {content.footer.about}
                   </li>
-                  <li onClick={() => window.location.href = '/app/index.html#/register'} className="hover:text-purple-400 cursor-pointer transition-colors flex items-center gap-2">
+                  <li onClick={() => window.location.href = 'https://khidma-ai.web.app/#/register'} className="hover:text-purple-400 cursor-pointer transition-colors flex items-center gap-2">
                     <ArrowUpRight className="w-3 h-3" />
                     {content.footer.add}
                     </li>
