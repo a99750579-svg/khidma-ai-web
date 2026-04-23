@@ -206,7 +206,7 @@ const TestimonialCard = ({ name, role, content, rating, image }: any) => (
         ))}
       </div>
       <p className="text-gray-300 text-base leading-relaxed mb-6 italic text-right">
-        "{content}"
+        &quot;{content}&quot;
       </p>
       <div className="flex items-center gap-3 flex-row-reverse">
         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold">
@@ -835,7 +835,7 @@ const SuggestCenterSection = ({ lang }: { lang: 'ar' | 'en' }) => {
               </>
             ) : (
               <>
-                Didn't find your favorite place?{' '}
+  Didn&apos;t find your favorite place?
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
                   Refer them! 🎯
                 </span>
