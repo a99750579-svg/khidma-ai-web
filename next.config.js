@@ -1,12 +1,4 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  compress: true,
-
-  optimizeFonts: true,
-
-  experimental: {
-    optimizeCss: true,
-  },
-};
+ /** @type {import('next').NextConfig} */
+const nextConfig = {};
 
 module.exports = nextConfig;
