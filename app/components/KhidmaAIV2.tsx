@@ -63,6 +63,9 @@ import Verified from "lucide-react/dist/esm/icons/check-circle-2";
 
 import Headphones from "lucide-react/dist/esm/icons/headphones";
 import Languages from "lucide-react/dist/esm/icons/languages";
+import Quote from "lucide-react/dist/esm/icons/quote";
+import Bot from "lucide-react/dist/esm/icons/bot";
+import Apple from "lucide-react/dist/esm/icons/apple";
 
 
 // --- مكون محاكي الهاتف (Phone Mockup) ---
