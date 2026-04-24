@@ -5,21 +5,64 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { MESSAGES, CONTACT_INFO } from '../constants/contact';
 import { FaInstagram, FaChrome, FaTiktok } from "react-icons/fa";
-import { 
-  Search, MapPin, Star, MessageSquare, Navigation, 
-  CheckCircle2, Building2, Zap, Sparkles, Users, 
-  ChevronDown, Send, ArrowRight, Shield, Calendar,
-  Clock, BarChart3, Lock, Verified, Bot, Globe,
-  UserCheck, FileCheck, Bell, TrendingUp, Award,
-  Headphones, Rocket, Languages, Menu, X, Play,
-  Heart, Share2, Smartphone,  Apple, 
-  CheckCircle, ArrowUpRight, Quote, 
-   Mail, ExternalLink, Flame, Trophy,
-  Target, Zap as ZapIcon, Crown, Gift, Phone,
-  AlertCircle, XCircle, Loader2, Sparkle
-} from 'lucide-react';
 
+import Search from "lucide-react/dist/esm/icons/search";
+import MapPin from "lucide-react/dist/esm/icons/map-pin";
+import Star from "lucide-react/dist/esm/icons/star";
+import MessageSquare from "lucide-react/dist/esm/icons/message-square";
+import Navigation from "lucide-react/dist/esm/icons/navigation";
 
+import CheckCircle from "lucide-react/dist/esm/icons/check-circle";
+import CheckCircle2 from "lucide-react/dist/esm/icons/check-circle-2";
+import Building2 from "lucide-react/dist/esm/icons/building-2";
+import Zap from "lucide-react/dist/esm/icons/zap";
+import Sparkles from "lucide-react/dist/esm/icons/sparkles";
+import Sparkle from "lucide-react/dist/esm/icons/sparkle";
+import Users from "lucide-react/dist/esm/icons/users";
+
+import ChevronDown from "lucide-react/dist/esm/icons/chevron-down";
+import Send from "lucide-react/dist/esm/icons/send";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import ArrowUpRight from "lucide-react/dist/esm/icons/arrow-up-right";
+import Shield from "lucide-react/dist/esm/icons/shield";
+import Calendar from "lucide-react/dist/esm/icons/calendar";
+
+import Clock from "lucide-react/dist/esm/icons/clock";
+import BarChart3 from "lucide-react/dist/esm/icons/bar-chart-3";
+import Lock from "lucide-react/dist/esm/icons/lock";
+import Globe from "lucide-react/dist/esm/icons/globe";
+import Award from "lucide-react/dist/esm/icons/award";
+import Trophy from "lucide-react/dist/esm/icons/trophy";
+
+import Menu from "lucide-react/dist/esm/icons/menu";
+import X from "lucide-react/dist/esm/icons/x";
+import Play from "lucide-react/dist/esm/icons/play";
+
+import Heart from "lucide-react/dist/esm/icons/heart";
+import Share2 from "lucide-react/dist/esm/icons/share-2";
+import Smartphone from "lucide-react/dist/esm/icons/smartphone";
+import Mail from "lucide-react/dist/esm/icons/mail";
+import Phone from "lucide-react/dist/esm/icons/phone";
+import ExternalLink from "lucide-react/dist/esm/icons/external-link";
+
+import Loader2 from "lucide-react/dist/esm/icons/loader-2";
+
+import TrendingUp from "lucide-react/dist/esm/icons/trending-up";
+import Rocket from "lucide-react/dist/esm/icons/rocket";
+import Crown from "lucide-react/dist/esm/icons/crown";
+import Gift from "lucide-react/dist/esm/icons/gift";
+import Target from "lucide-react/dist/esm/icons/target";
+import Flame from "lucide-react/dist/esm/icons/flame";
+import AlertCircle from "lucide-react/dist/esm/icons/alert-circle";
+import XCircle from "lucide-react/dist/esm/icons/x-circle";
+import Bell from "lucide-react/dist/esm/icons/bell";
+
+import UserCheck from "lucide-react/dist/esm/icons/user-check";
+import FileCheck from "lucide-react/dist/esm/icons/file-check";
+import Verified from "lucide-react/dist/esm/icons/check-circle-2";
+
+import Headphones from "lucide-react/dist/esm/icons/headphones";
+import Languages from "lucide-react/dist/esm/icons/languages";
 
 
 // --- مكون محاكي الهاتف (Phone Mockup) ---
