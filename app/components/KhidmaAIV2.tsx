@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MESSAGES, CONTACT_INFO } from '../constants/contact';
 import { FaInstagram, FaChrome, FaTiktok } from "react-icons/fa";
 import { Search, MapPin, Star, MessageSquare, Navigation, CheckCircle2, Building2, Zap, Sparkles, Users, ChevronDown, Send, ArrowRight, Shield, Calendar, Clock, BarChart3, Lock, Verified, Bot, Globe, UserCheck, FileCheck, Bell, TrendingUp, Award, Headphones, Rocket, Languages, Menu, X, Play, Heart, Share2, Smartphone, Apple, CheckCircle, ArrowUpRight, Quote, Mail, ExternalLink, Flame, Trophy, Target, Zap as ZapIcon, Crown, Gift, Phone, AlertCircle, XCircle, Loader2, Sparkle } from 'lucide-react';
