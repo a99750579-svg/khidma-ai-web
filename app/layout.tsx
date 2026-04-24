@@ -14,9 +14,8 @@ export const metadata = {
     "خدمات السعودية",
   ],
   authors: [{ name: "Khidma AI" }],
-
 verification: {
-  "zsTk6LrITxqR2e21dnl183AFLQ6hL1EO6JKaz6Dhw",
+  "zsTk6LrITxqR2e21dnl183AFLQ6hL1EO6JKaz6Dhw"
 },
   openGraph: {
     title: "Khidma AI",
