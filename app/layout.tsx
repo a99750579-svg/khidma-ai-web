@@ -1,20 +1,31 @@
-import "./globals.css"; // 👈 هذا أهم سطر
+import "./globals.css";
+import type { Metadata } from "next";
+import { Tajawal } from "next/font/google";
 
-export const metadata = {
+const tajawal = Tajawal({
+  weight: ["400", "500", "700", "800", "900"],
+  subsets: ["arabic"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://khidma-ai.vercel.app"),
   title: "Khidma AI | دليل الخدمات والمراكز في السعودية",
   description:
     "Khidma AI هو دليلك الذكي لاكتشاف أفضل المراكز والخدمات القريبة منك بسهولة. تقييمات، مواقع، وكل شيء في مكان واحد.",
+
   keywords: [
     "دليل خدمات",
     "مراكز قريبة",
     "أفضل عيادة",
     "مطاعم قريبة",
     "Khidma AI",
+    "KhidmaAI",
     "خدمات السعودية",
   ],
+
   authors: [{ name: "Khidma AI" }],
 
-  // ✅ كود التحقق (أضفناه فقط)
   verification: {
     google: "h_zsTk6LrITxqR2e21dnl183AFLQ6hL1EO6JKaz6Dhw",
   },
@@ -36,14 +47,13 @@ export const metadata = {
   },
 };
 
-// 👇 هذا الجزء فقط أضفناه
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className={tajawal.className}>
       <body>{children}</body>
     </html>
   );

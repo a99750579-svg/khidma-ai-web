@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { MESSAGES, CONTACT_INFO } from '../constants/contact';
 import { FaInstagram, FaChrome, FaTiktok } from "react-icons/fa";
 import { 
