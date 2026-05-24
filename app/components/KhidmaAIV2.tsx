@@ -1336,7 +1336,7 @@ export default function KhidmaAIV2() {
       : MESSAGES.defaultMessage.en;
   
     navigator.clipboard.writeText(message);
-    window.open('https://instagram.com/khidmaai', '_blank');
+    window.open('https://instagram.com/khidma.ai', '_blank');
   
     alert(lang === 'ar'
       ? 'تم نسخ الرسالة ✨ الصقها في الانستقرام'
@@ -2114,10 +2114,10 @@ export default function KhidmaAIV2() {
               </p>
               
               <div className="flex items-center gap-4">
-                <a href="https://tiktok.com/@khidmaai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-purple-500/30 transition-all group" aria-label="تيك توك">
+                <a href="https://tiktok.com/@khidma_ai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-purple-500/30 transition-all group" aria-label="تيك توك">
                   <FaTiktok className="w-5 h-5 group-hover:text-purple-400 transition-colors" aria-hidden="true" />
                 </a>
-                <a href="https://instagram.com/khidmaai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-purple-500/30 transition-all group" aria-label="انستقرام">
+                <a href="https://instagram.com/khidma.ai" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-purple-500/30 transition-all group" aria-label="انستقرام">
                   <FaInstagram className="w-5 h-5 group-hover:text-purple-400 transition-colors" aria-hidden="true" />
                 </a>
                 <a href="mailto:khidmaai51718@gmail.com" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-purple-500/30 transition-all group" aria-label="البريد الإلكتروني">
@@ -2154,10 +2154,10 @@ export default function KhidmaAIV2() {
                 </h3>
                 <ul className="text-gray-400 space-y-2 text-sm font-bold">
                   <li>
-                    <a href="https://tiktok.com/@khidmaai" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">{content.footer.twitter}</a>
+                    <a href="https://tiktok.com/@khidma_ai" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">{content.footer.twitter}</a>
                   </li>
                   <li>
-                    <a href="https://instagram.com/khidmaai" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-color">{content.footer.instagram}</a>
+                    <a href="https://instagram.com/khidma.AI" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-color">{content.footer.instagram}</a>
                   </li>
                   <li>
                     <a href="mailto:khidmaai51718@gmail.com" className="hover:text-purple-400 transition-colors">{content.footer.email}</a>
