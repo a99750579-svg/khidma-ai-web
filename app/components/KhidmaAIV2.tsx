@@ -6,8 +6,72 @@ import { AnimatePresence } from "framer-motion";
 import { MESSAGES, CONTACT_INFO } from '../constants/contact';
 import { FaInstagram, FaChrome, FaTiktok } from "react-icons/fa";
 import { Search, MapPin, Star, MessageSquare, Navigation, CheckCircle2, Building2, Zap, Sparkles, Users, ChevronDown, Send, ArrowRight, Shield, Calendar, Clock, BarChart3, Lock, Verified, Bot, Globe, UserCheck, FileCheck, Bell, TrendingUp, Award, Headphones, Rocket, Languages, Menu, X, Play, Heart, Share2, Smartphone, Apple, CheckCircle, ArrowUpRight, Quote, Mail, ExternalLink, Flame, Trophy, Target, Zap as ZapIcon, Crown, Gift, Phone, AlertCircle, XCircle, Loader2, Sparkle } from 'lucide-react';
+import Script from 'next/script';
 
+// ==================== Google AdSense ====================
+const ADSENSE_CLIENT = 'ca-pub-1995455358597387';
+const ADSENSE_SLOTS = {
+  horizontal: '6831424195',
+  vertical: '3219482242',
+  rectangle: '5739045821',
+};
 
+const AdSenseUnit = ({
+  slot,
+  format = 'auto',
+  className = '',
+}: {
+  slot: string;
+  format?: 'auto' | 'horizontal' | 'vertical' | 'rectangle';
+  className?: string;
+}) => {
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {}
+  }, []);
+
+  return (
+    <ins
+      className={`adsbygoogle ${className}`}
+      style={{ display: 'block' }}
+      data-ad-client={ADSENSE_CLIENT}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    ></ins>
+  );
+};
+
+// الإعلان الأفقي أعلى الصفحة
+const TopAdBanner = () => (
+  <div className="w-full bg-[#02000f] border-b border-white/5 py-2 px-4 flex justify-start overflow-hidden">
+    <div className="w-full max-w-full overflow-hidden min-h-[50px]">
+      <AdSenseUnit slot={ADSENSE_SLOTS.horizontal} format="horizontal" />
+    </div>
+  </div>
+);
+
+// الإعلان العمودي الطويل على يسار الموقع — يظهر فقط على الشاشات الواسعة
+const SideVerticalAd = () => (
+  <aside
+    className="hidden 2xl:block fixed left-2 top-32 z-20 w-[160px] max-h-[600px] overflow-hidden"
+    aria-label="Advertisement"
+  >
+    <AdSenseUnit slot={ADSENSE_SLOTS.vertical} format="vertical" />
+  </aside>
+);
+
+// الإعلان المربع داخل شاشة محاكي الهاتف
+const PhoneMockupAd = () => (
+  <div
+    className="absolute left-3 right-3 top-10 z-20 rounded-xl overflow-hidden bg-white/95 shadow-lg border border-gray-200 min-h-[70px]"
+    aria-label="Advertisement"
+  >
+    <AdSenseUnit slot={ADSENSE_SLOTS.rectangle} format="rectangle" />
+  </div>
+);
 
 // --- مكون محاكي الهاتف (Phone Mockup) ---
 const PhoneMockup = () => {
@@ -44,6 +108,8 @@ const PhoneMockup = () => {
             <div className="w-3 h-3 bg-black rounded-full"></div>
           </div>
         </div>
+
+        <PhoneMockupAd />
 
         {/* محاكاة لواجهة تطبيقك (Flutter UI Simulation) */}
         <AnimatePresence mode="wait">
@@ -313,7 +379,7 @@ const LiveSearchDemo = ({ lang }: { lang: 'ar' | 'en' }) => {
     ar: {
       city: 'المدينة المتاحة',
       riyadh: 'الرس',
-      riyadhNote: 'المدينة الوحيدة متاحة حالياً',
+      riyadhNote: 'من هنا بدأت رحلتنا',
       selectService: 'اختر الخدمة',
       budgetLabel: 'ميزانيتك (ريال)',
       button: 'ابحث الآن',
@@ -328,7 +394,7 @@ const LiveSearchDemo = ({ lang }: { lang: 'ar' | 'en' }) => {
     en: {
       city: 'Available City',
       riyadh: 'AR rass',
-      riyadhNote: 'Only city available now',
+      riyadhNote: 'Where our journey began',
       selectService: 'Select Service',
       budgetLabel: 'Your Budget (SAR)',
       button: 'Search Now',
@@ -492,8 +558,8 @@ const LiveSearchDemo = ({ lang }: { lang: 'ar' | 'en' }) => {
 const SaudiMapSection = ({ lang }: { lang: 'ar' | 'en' }) => {
   const t = {
     ar: {
-      title: 'نبدأ من مدينة واحدة... ونصل لكل المملكة',
-      subtitle: 'خطتنا للتوسع عبر المدن السعودية',
+      title: 'بدأنا من الرس، السعودية... ونوصل الحين لكل العالم',
+      subtitle: 'قصة انطلاقتنا، ووجهتنا القادمة',
       current: 'متاح الآن',
       soon: 'قريباً',
       riyadh: 'الرس',
@@ -501,11 +567,11 @@ const SaudiMapSection = ({ lang }: { lang: 'ar' | 'en' }) => {
       dammam: 'الدمام',
       makkah: 'مكة',
       madinah: 'المدينة',
-      cities: 'مدينة قريباً'
+      cities: 'دولة حول العالم'
     },
     en: {
-      title: 'Starting from One City... Reaching All of Saudi',
-      subtitle: 'Our expansion plan across Saudi cities',
+      title: 'Started in Ar Rass, Saudi Arabia... Now Reaching the World',
+      subtitle: 'Our story began here, and our journey continues worldwide',
       current: 'Available Now',
       soon: 'Coming Soon',
       riyadh: 'Ar rass',
@@ -513,7 +579,7 @@ const SaudiMapSection = ({ lang }: { lang: 'ar' | 'en' }) => {
       dammam: 'Dammam',
       makkah: 'Makkah',
       madinah: 'Madinah',
-      cities: 'cities coming soon'
+      cities: 'countries around the world'
     }
   };
 
@@ -951,7 +1017,7 @@ export default function KhidmaAIV2() {
         login: 'دخول المنصة'
       },
       hero: {
-        badge: 'قريباً في كافة أنحاء المملكة 🇸🇦',
+        badge: 'متاح الآن حول العالم 🌍 — انطلقنا من الرس، السعودية',
         greeting: 'هلا والله 👋🏻',
         title: 'دليلك الذكي لكل الخدمات حولك',
         titleHighlight: 'يوصلك خلال ثواني...',
@@ -1083,8 +1149,8 @@ export default function KhidmaAIV2() {
         subtitle: 'كل ما تود معرفته عن Khidma AI',
         q1: 'المنصة بفلوس؟',
         a1: 'أبد، المنصة مجانية بالكامل للمستخدمين. هدفنا نسهل عليك الوصول لكل الخدمات في مدينتك بدون أي رسوم.',
-        q2: 'ليش بس مدينة واحدة حالياً؟',
-        a2: 'لأننا نبي نضمن جودة البيانات ونعطيك أدق النتائج قبل ما نتوسع لكل المملكة قريباً بإذن الله.',
+        q2: 'هل المنصة متاحة بكل الدول؟',
+        a2: 'نعم! Khidma AI أصبحت متاحة عالمياً. انطلقنا من مدينة الرس بالسعودية، والحين نوسّع تغطيتنا لكل الدول تدريجياً حسب تسجيل المراكز في كل منطقة.',
         q3: 'كيف أحصل على كود الدعوة لمركزي؟',
         a3: 'تواصل معنا عبر حساب مركزك الرسمي على التيك توك أو انستقرام، وفريقنا راح يتحقق من هوية المركز ويرسل لك الكود الخاص بك.',
         q4: 'هل الموقع آمن لبيانات مركزي؟',
@@ -1107,7 +1173,7 @@ export default function KhidmaAIV2() {
         counter: '+50,000 شخص ينتظرون الإطلاق'
       },
       footer: {
-        desc: 'المنصة الأولى والذكية لدليل الخدمات في المملكة. نبدأ من موقع إلكتروني، والهدف تطبيق يخدم كل المدن.',
+        desc: 'المنصة الذكية لدليل الخدمات حول العالم — انطلقنا من الرس، السعودية 🇸🇦',
         links: 'روابط سريعة',
         about: 'عن المنصة',
         add: 'إضافة مركز',
@@ -1131,7 +1197,7 @@ export default function KhidmaAIV2() {
         login: 'Sign In'
       },
       hero: {
-        badge: 'Coming Soon Across Saudi Arabia 🇸🇦',
+        badge: 'Now Available Worldwide 🌍 — Founded in Ar Rass, Saudi Arabia',
         greeting: 'Hey there 👋🏻',
         title: 'Your Smart Guide to All Services Around You',
         titleHighlight: 'It connects you in seconds...',
@@ -1263,8 +1329,8 @@ export default function KhidmaAIV2() {
         subtitle: 'Everything you need to know about Khidma AI',
         q1: 'Is the platform paid?',
         a1: 'Not at all, the platform is completely free for users. Our goal is to make it easy for you to access all services in your city without any fees.',
-        q2: 'Why only one city currently?',
-        a2: 'Because we want to ensure data quality and give you the most accurate results before expanding across the Kingdom soon, God willing.',
+        q2: 'Is the platform available in every country?',
+        a2: 'Yes! Khidma AI is now available worldwide. We started in Ar Rass, Saudi Arabia, and are gradually expanding our coverage to countries around the world as centers register in each region.',
         q3: 'How do I get an invite code for my center?',
         a3: 'Contact us via your center\'s official TikTok or Instagram account, and our team will verify the center\'s identity and send you your unique code.',
         q4: 'Is the platform secure for my center\'s data?',
@@ -1287,7 +1353,7 @@ export default function KhidmaAIV2() {
         counter: '+50,000 people waiting for launch'
       },
       footer: {
-        desc: 'The first smart platform for service directory in the Kingdom. Starting as a website, aiming for an app serving all cities.',
+        desc: 'The smart service directory platform for the world — founded in Ar Rass, Saudi Arabia 🇸🇦',
         links: 'Quick Links',
         about: 'About Platform',
         add: 'Add Center',
@@ -1352,6 +1418,13 @@ export default function KhidmaAIV2() {
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
       `}</style>
 
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1995455358597387"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
+
       <div 
         className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
         style={{
@@ -1360,7 +1433,9 @@ export default function KhidmaAIV2() {
         aria-hidden="true"
       />
 
-      <nav className={`fixed top-0 w-full z-50 border-b border-white/5 transition-all duration-300 ${scrolled ? 'bg-[#02000f]/95 backdrop-blur-2xl shadow-lg shadow-purple-500/5' : 'bg-[#02000f]/80 backdrop-blur-xl'}`} role="navigation" aria-label="القائمة الرئيسية">
+      <TopAdBanner />
+      <SideVerticalAd />
+      <nav className={`sticky top-0 w-full z-50 border-b border-white/5 transition-all duration-300 ${scrolled ? 'bg-[#02000f]/95 backdrop-blur-2xl shadow-lg shadow-purple-500/5' : 'bg-[#02000f]/80 backdrop-blur-xl'}`} role="navigation" aria-label="القائمة الرئيسية">
         <div className={`max-w-7xl mx-auto px-6 h-20 flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className={`flex items-center gap-3 group cursor-pointer ${isRTL ? 'text-right' : 'text-left'}`}>
             <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform" aria-hidden="true">
