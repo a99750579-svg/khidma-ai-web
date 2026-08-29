@@ -8,68 +8,48 @@ import { FaInstagram, FaChrome, FaTiktok } from "react-icons/fa";
 import { Search, MapPin, Star, MessageSquare, Navigation, CheckCircle2, Building2, Zap, Sparkles, Users, ChevronDown, Send, ArrowRight, Shield, Calendar, Clock, BarChart3, Lock, Verified, Bot, Globe, UserCheck, FileCheck, Bell, TrendingUp, Award, Headphones, Rocket, Languages, Menu, X, Play, Heart, Share2, Smartphone, Apple, CheckCircle, ArrowUpRight, Quote, Mail, ExternalLink, Flame, Trophy, Target, Zap as ZapIcon, Crown, Gift, Phone, AlertCircle, XCircle, Loader2, Sparkle } from 'lucide-react';
 import Script from 'next/script';
 
-// ==================== Google AdSense ====================
-const ADSENSE_CLIENT = 'ca-pub-1995455358597387';
-const ADSENSE_SLOTS = {
-  horizontal: '6831424195',
-  vertical: '3219482242',
-  rectangle: '5739045821',
-};
+// --- Google AdSense ---
+const ADSENSE_CLIENT = "ca-pub-1995455358597387";
 
-const AdSenseUnit = ({
-  slot,
-  format = 'auto',
-  className = '',
-}: {
-  slot: string;
-  format?: 'auto' | 'horizontal' | 'vertical' | 'rectangle';
-  className?: string;
-}) => {
+const AdUnit = ({ slot, format, className = "" }: { slot: string; format: string; className?: string }) => {
   useEffect(() => {
     try {
       // @ts-ignore
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {}
-  }, []);
+  }, [slot]);
 
   return (
-    <ins
-      className={`adsbygoogle ${className}`}
-      style={{ display: 'block' }}
-      data-ad-client={ADSENSE_CLIENT}
-      data-ad-slot={slot}
-      data-ad-format={format}
-      data-full-width-responsive="true"
-    ></ins>
+    <div className={className}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block", width: "100%" }}
+        data-ad-client={ADSENSE_CLIENT}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      ></ins>
+    </div>
   );
 };
 
-// الإعلان الأفقي أعلى الصفحة
 const TopAdBanner = () => (
   <div className="w-full bg-[#02000f] border-b border-white/5 py-2 px-4 flex justify-start overflow-hidden">
-    <div className="w-full max-w-full overflow-hidden min-h-[50px]">
-      <AdSenseUnit slot={ADSENSE_SLOTS.horizontal} format="horizontal" />
+    <div className="w-full max-w-full overflow-hidden">
+      <AdUnit slot="6831424195" format="horizontal" />
     </div>
   </div>
 );
 
-// الإعلان العمودي الطويل على يسار الموقع — يظهر فقط على الشاشات الواسعة
-const SideVerticalAd = () => (
-  <aside
-    className="hidden 2xl:block fixed left-2 top-32 z-20 w-[160px] max-h-[600px] overflow-hidden"
-    aria-label="Advertisement"
-  >
-    <AdSenseUnit slot={ADSENSE_SLOTS.vertical} format="vertical" />
-  </aside>
+const SideAdBanner = () => (
+  <div className="hidden xl:block absolute left-0 top-1/2 -translate-y-1/2 w-[160px] max-h-[600px] overflow-hidden z-20">
+    <AdUnit slot="3219482242" format="vertical" />
+  </div>
 );
 
-// الإعلان المربع داخل شاشة محاكي الهاتف
 const PhoneMockupAd = () => (
-  <div
-    className="absolute left-3 right-3 top-10 z-20 rounded-xl overflow-hidden bg-white/95 shadow-lg border border-gray-200 min-h-[70px]"
-    aria-label="Advertisement"
-  >
-    <AdSenseUnit slot={ADSENSE_SLOTS.rectangle} format="rectangle" />
+  <div className="w-full rounded-xl overflow-hidden bg-white/5 border border-gray-200/30 shrink-0">
+    <AdUnit slot="5739045821" format="rectangle" className="w-full" />
   </div>
 );
 
@@ -109,8 +89,6 @@ const PhoneMockup = () => {
           </div>
         </div>
 
-        <PhoneMockupAd />
-
         {/* محاكاة لواجهة تطبيقك (Flutter UI Simulation) */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -121,6 +99,9 @@ const PhoneMockup = () => {
             transition={{ duration: 0.5 }}
             className="p-4 pt-10 h-full flex flex-col gap-4 overflow-y-auto no-scrollbar"
           >
+            {/* الإعلان داخل شاشة الجوال نفسها: جزء من المحتوى المتحرك، وليس طبقة فوقه */}
+            <PhoneMockupAd />
+
             {currentScreen === 0 && (
               <>
                 {/* Header */}
@@ -571,15 +552,15 @@ const SaudiMapSection = ({ lang }: { lang: 'ar' | 'en' }) => {
     },
     en: {
       title: 'Started in Ar Rass, Saudi Arabia... Now Reaching the World',
-      subtitle: 'Our story began here, and our journey continues worldwide',
+      subtitle: 'Our journey from Saudi Arabia to the world',
       current: 'Available Now',
       soon: 'Coming Soon',
-      riyadh: 'Ar rass',
+      riyadh: 'Ar Rass',
       jeddah: 'Jeddah',
       dammam: 'Dammam',
       makkah: 'Makkah',
       madinah: 'Madinah',
-      cities: 'countries around the world'
+      cities: 'countries worldwide'
     }
   };
 
@@ -1329,8 +1310,8 @@ export default function KhidmaAIV2() {
         subtitle: 'Everything you need to know about Khidma AI',
         q1: 'Is the platform paid?',
         a1: 'Not at all, the platform is completely free for users. Our goal is to make it easy for you to access all services in your city without any fees.',
-        q2: 'Is the platform available in every country?',
-        a2: 'Yes! Khidma AI is now available worldwide. We started in Ar Rass, Saudi Arabia, and are gradually expanding our coverage to countries around the world as centers register in each region.',
+        q2: 'Is the platform available in all countries?',
+        a2: 'Yes! Khidma AI is now available worldwide. We started in Ar Rass, Saudi Arabia, and we\'re gradually expanding our coverage to all countries as centers register in each region.',
         q3: 'How do I get an invite code for my center?',
         a3: 'Contact us via your center\'s official TikTok or Instagram account, and our team will verify the center\'s identity and send you your unique code.',
         q4: 'Is the platform secure for my center\'s data?',
@@ -1353,7 +1334,7 @@ export default function KhidmaAIV2() {
         counter: '+50,000 people waiting for launch'
       },
       footer: {
-        desc: 'The smart service directory platform for the world — founded in Ar Rass, Saudi Arabia 🇸🇦',
+        desc: 'The smart platform for service directory around the world — we started in Ar Rass, Saudi Arabia 🇸🇦',
         links: 'Quick Links',
         about: 'About Platform',
         add: 'Add Center',
@@ -1434,7 +1415,6 @@ export default function KhidmaAIV2() {
       />
 
       <TopAdBanner />
-      <SideVerticalAd />
       <nav className={`sticky top-0 w-full z-50 border-b border-white/5 transition-all duration-300 ${scrolled ? 'bg-[#02000f]/95 backdrop-blur-2xl shadow-lg shadow-purple-500/5' : 'bg-[#02000f]/80 backdrop-blur-xl'}`} role="navigation" aria-label="القائمة الرئيسية">
         <div className={`max-w-7xl mx-auto px-6 h-20 flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className={`flex items-center gap-3 group cursor-pointer ${isRTL ? 'text-right' : 'text-left'}`}>
@@ -1523,6 +1503,7 @@ export default function KhidmaAIV2() {
 
       <main>
         <section className="relative pt-40 pb-20 px-6">
+          <SideAdBanner />
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             <div className={`${isRTL ? 'text-right' : 'text-left'} z-10`}>
